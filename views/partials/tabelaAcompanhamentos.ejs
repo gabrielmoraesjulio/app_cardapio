@@ -1,0 +1,37 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Disponivel</th>
+        <th scope="col">Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% acharAcompanhamentos.forEach((acompanhamentos) => { %>
+        <tr>
+            <th><%= acompanhamentos.nomeAcompanhamento %></th>
+            <td>
+                <form action="/disponivelAcompanhamento" method="post">
+                    <input type="hidden" name="disponivelAcompanhamentoId" value="<%= acompanhamentos._id %>">
+                    <input type="radio" value="sim" name="disponivelAcompanhamento">
+                        <label for="disponivelAcompanhamento">Tem</label>
+                    <input type="radio" value="nao" name="disponivelAcompanhamento">
+                        <label for="disponivelAcompanhamento">Não Tem</label>
+                    <button type="submit" class="btn btn-primary btn-sm">ALTERAR</button>
+                </form>
+            </td>
+            <td>
+                <form action="/editarNomeAcompanhamento" method="post" class="d-inline">
+                    <input type="hidden" name="editarAcompanhamentoId" value="<%= acompanhamentos._id %>">
+                    <input type="text" name="editarNomeAcompanhamento">
+                    <button type="submit" class="btn btn-warning btn-sm">EDITAR</button>
+                </form>
+                <form action="/deletarAcompanhamento" method="post" class="d-inline">
+                    <input type="hidden" name="deletarAcompanhamento" value="<%= acompanhamentos.nomeAcompanhamento %>">
+                    <button type="submit" class="btn btn-danger btn-sm">EXCLUIR</a>
+                </form>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>

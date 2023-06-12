@@ -1,0 +1,29 @@
+<%- include("./partials/header") %>
+<body>
+    <%- include("./partials/navbar") %>
+
+    <div class="container">
+        <hr>
+            <h5>Cadastrar Mistura</h5>
+            <form action="/cadastrarMistura" method="post">
+                <input type="text" class="form-control" name="cadastrarMistura">
+                <button type="submit" class="btn btn-primary mt-3">NOVA MISTURA</button>
+            </form>
+        <hr>
+            <h5>Cadastrar Acompanhamento</h5>
+            <form action="/cadastrarAcompanhamento" method="post">
+                <input type="text" class="form-control" name="cadastrarAcompanhamento">
+                <button type="submit" class="btn btn-primary mt-3">NOVO ACOMPANHAMENTO</button>
+            </form>
+        <hr>
+            <h1>Misturas</h1>
+        <hr>
+            <%- include("./partials/tabelaMisturas") %>
+        <hr>
+            <h1>Acompanhamentos</h1>
+        <hr>
+            <%- include("./partials/tabelaAcompanhamentos") %>
+        <hr>
+    </div>
+</body>
+<%- include("./partials/footer") %>

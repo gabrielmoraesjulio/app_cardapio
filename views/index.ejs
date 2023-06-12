@@ -1,0 +1,24 @@
+<%- include("./partials/header") %>
+<body>
+    <%- include("./partials/navbar") %>
+    <div class="container">
+        <hr>
+            <h1>Pratos Disponiveis</h1>
+        <hr>
+            <h5>Misturas Disponiveis</h5>
+            <ul>
+                <% acharMisturas.forEach((misturas) => { %>
+                    <li><%= misturas.nomeMistura %></li>
+                <% }) %>
+            </ul>
+        <hr>
+            <h5>Acompanhamentos Disponiveis</h5>
+            <ul>
+                <% acharAcompanhamentos.forEach((acompanhamentos) => { %>
+                    <li><%= acompanhamentos.nomeAcompanhamento %></li>
+                <% }) %>
+            </ul>
+        <hr>
+    </div>
+</body>
+<%- include("./partials/footer") %>

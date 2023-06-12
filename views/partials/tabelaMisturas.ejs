@@ -1,0 +1,38 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Disponivel</th>
+        <th scope="col">Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% acharMisturas.forEach((misturas) => { %>
+        <tr>
+            <th><%= misturas.nomeMistura %></th>
+            <td>
+                <form action="/disponivelMistura" method="post">
+                    <input type="hidden" name="disponivelMisturaId" value="<%= misturas._id %>">
+                    <input type="radio" value="sim" name="disponivelMistura" id="disponivelMistura">
+                        <label for="disponivelMistura">Tem</label>
+                    <input type="radio" value="nao" name="disponivelMistura" id="disponivelMistura">
+                        <label for="disponivelMistura">Não Tem</label>
+                    <button type="submit" class="btn btn-primary btn-sm">ALTERAR</button>
+                </form>
+            </td>
+            <td>
+                <form action="/editarNomeMistura" method="post" class="d-inline">
+                    <input type="hidden" name="editarNomeId" value="<%= misturas._id %>">
+                    <input type="text" name="editarNomeMistura">
+                    <button type="submit" class="btn btn-warning btn-sm">EDITAR</button>
+                </form>
+
+                <form action="/deletarMistura" method="post" class="d-inline">
+                    <input type="hidden" name="deletarMistura" value="<%= misturas.nomeMistura %>">
+                    <button type="submit" class="btn btn-danger btn-sm">EXCLUIR</button>
+                </form>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
